@@ -1,5 +1,5 @@
 {% set name = "txl-markdown-viewer" %}
-{% set version = "0.2.13" %}
+{% set version = "0.2.14" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/txl_markdown_viewer-{{ version }}.tar.gz
-  sha256: b9683ac0cf93793020de6bbd2d69890f240c2ee6323746b2830f877573fc9fd0
+  sha256: b5ee49a406f4cac61ac5332f2c5005a3208793e5687da203d2d45f0398d6b931
 
 build:
   noarch: python
@@ -21,7 +21,7 @@ requirements:
     - hatchling
   run:
     - python >=3.10
-    - txl
+    - txl >=0.2.18,<0.3.0
 
 test:
   # `pip check` was disabled, see: https://github.com/conda-forge/staged-recipes/pull/26869

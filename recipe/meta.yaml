@@ -1,6 +1,6 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "txl-markdown-viewer" %}
-{% set version = "0.2.14" %}
+{% set version = "0.3.3" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/txl_markdown_viewer-{{ version }}.tar.gz
-  sha256: b5ee49a406f4cac61ac5332f2c5005a3208793e5687da203d2d45f0398d6b931
+  sha256: 15f37a597c1f8a197a4e5b80592e50ac05ae05830bb0ed7db26cf5a4008217e3
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:

@@ -1,6 +1,6 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "txl-markdown-viewer" %}
-{% set version = "0.2.14" %}
+{% set version = "0.3.6" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/txl_markdown_viewer-{{ version }}.tar.gz
-  sha256: b5ee49a406f4cac61ac5332f2c5005a3208793e5687da203d2d45f0398d6b931
+  sha256: 312f74895316f4cb0120d6d1c4c24fdac009030bf18ea3d5109cf3a5a206810e
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -22,17 +22,14 @@ requirements:
     - hatchling
   run:
     - python >={{ python_min }}
-    - txl >=0.2.18,<0.3.0
+    - txl =0.3.2
 
 test:
-  # `pip check` was disabled, see: https://github.com/conda-forge/staged-recipes/pull/26869
-  #
-  # requires:
-  #   - pip
-  # commands:
-  #   - pip check
   requires:
+    - pip
     - python {{ python_min }}
+  commands:
+    - pip check
   imports:
     - txl_markdown_viewer
 
